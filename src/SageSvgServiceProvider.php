@@ -5,6 +5,8 @@ namespace Log1x\SageSvg;
 use Roots\Acorn\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 
+use function Roots\public_path;
+
 class SageSvgServiceProvider extends ServiceProvider
 {
    /**
@@ -44,7 +46,7 @@ class SageSvgServiceProvider extends ServiceProvider
     protected function config()
     {
         return collect([
-            'path' => $this->app->basePath('dist')
+            'path' => public_path()
         ])
         ->merge($this->app->config->get('svg', []))
         ->all();
